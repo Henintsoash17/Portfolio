@@ -7,10 +7,12 @@ import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
+import ParallaxScene from "@/components/ParallaxScene";
 
 export default function HomePage() {
     return (
         <main>
+            <ParallaxScene />
             <Header />
             <Hero />
             <About />

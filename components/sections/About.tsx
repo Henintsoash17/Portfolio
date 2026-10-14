@@ -48,6 +48,7 @@ export default function About() {
                             compréhension du besoin.
                         </p>
                         <div className="chips">
+                            <span className="chip">Malagasy — langue maternelle</span>
                             <span className="chip">Français — courant</span>
                             <span className="chip">Anglais — technique</span>
                             <span className="chip">Madagascar</span>
