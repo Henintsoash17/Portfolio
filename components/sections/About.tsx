@@ -1,57 +1,39 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
+
 export default function About() {
+    const { t } = useLanguage();
     return (
         <section id="apropos">
             <div className="wrap">
                 <div className="sectionHead">
                     <div>
-                        <div className="kicker">01 / À propos</div>
+                        <div className="kicker">{t.about.kicker}</div>
                         <h2>
-                            Un profil polyvalent,
+                            {t.about.titleFirst}
                             <br />
-                            orienté solutions.
+                            {t.about.titleSecond}
                         </h2>
                     </div>
                     <p className="sectionDesc">
-                        Du besoin métier jusqu’à la mise en œuvre technique, je
-                        m’intéresse à toutes les étapes d’un produit logiciel.
+                        {t.about.intro}
                     </p>
                 </div>
                 <div className="aboutGrid">
                     <div className="aboutPanel">
-                        <div className="big">Ingénieur en informatique</div>
-                        <h3>Master Professionnel en Informatique</h3>
-                        <p>
-                            ENI — École Nationale d’Informatique, Fianarantsoa
-                        </p>
+                        <div className="big">{t.about.engineer}</div>
+                        <h3>{t.about.degree}</h3>
+                        <p>{t.about.school}</p>
                         <div className="chips">
-                            <span className="chip">Autonomie</span>
-                            <span className="chip">Esprit d’équipe</span>
-                            <span className="chip">Rigueur</span>
-                            <span className="chip">Adaptabilité</span>
+                            {t.about.qualities.map((quality) => <span className="chip" key={quality}>{quality}</span>)}
                         </div>
                     </div>
                     <div className="aboutCopy">
-                        <p>
-                            Mon expérience chez TOMATE m’a permis de travailler
-                            sur un module de gestion commerciale au sein d’un
-                            ERP, en reliant une interface moderne en Next.js à
-                            des API .NET. J’ai également participé à la création
-                            d’une plateforme e-commerce et d’un outil de gestion
-                            de stock.
-                        </p>
-                        <p>
-                            Je cherche à continuer à progresser au contact
-                            d’équipes techniques, à contribuer à des projets
-                            concrets et à écrire du code maintenable. J’apprends
-                            rapidement de nouveaux outils et j’accorde de
-                            l’importance à la communication et à la
-                            compréhension du besoin.
-                        </p>
+                        <p>{t.about.paragraphOne}</p>
+                        <p>{t.about.paragraphTwo}</p>
                         <div className="chips">
-                            <span className="chip">Malagasy — langue maternelle</span>
-                            <span className="chip">Français — courant</span>
-                            <span className="chip">Anglais — technique</span>
-                            <span className="chip">Madagascar</span>
+                            {t.about.languages.map((language) => <span className="chip" key={language}>{language}</span>)}
                         </div>
                     </div>
                 </div>

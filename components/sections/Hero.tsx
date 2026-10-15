@@ -1,30 +1,34 @@
+"use client";
+
 import { profile } from "@/data/portfolio";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Hero() {
+  const { language, t } = useLanguage();
   return (
     <section className="hero" id="accueil">
       <div className="wrap heroGrid">
         <div>
           <div className="eyebrow">
-            <span className="dot" /> {profile.availability}
+            <span className="dot" /> {t.profile.availability}
           </div>
 
           <h1>
-            Je construis
+            {t.hero.headlineFirst}
             <br />
-            des produits <span className="green">web utiles.</span>
+            {t.hero.headlineSecond} <span className="green">{t.hero.headlineHighlight}</span>
           </h1>
 
           <p className="lead">
-            Je suis <strong>{profile.name}</strong>, {profile.summary}
+            {t.hero.introPrefix} <strong>{profile.shortName}</strong>, {t.profile.summary}
           </p>
 
           <div className="actions">
             <a className="btn primary" href="#projets">
-              Découvrir mes projets <span>↘</span>
+              {t.hero.projects} <span>↘</span>
             </a>
             <a className="btn secondary" href="#contact">
-              Me contacter <span>↗</span>
+              {t.hero.contact} <span>↗</span>
             </a>
           </div>
 
@@ -35,7 +39,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="heroCard" aria-label="Aperçu de code">
+        <div className="heroCard" aria-label={t.hero.codePreview}>
           <div className="codeTop">
             <span>developer.ts</span>
             <span className="lights">
@@ -55,7 +59,7 @@ export default function Hero() {
             </div>
 
             <div className="indent">
-              role: <span className="c-green">&quot;Fullstack Développeur&quot;</span>,
+              role: <span className="c-green">&quot;{language === "fr" ? "Développeur Fullstack" : "Full-stack Developer"}&quot;</span>,
             </div>
 
             <div className="indent">stack: [</div>
@@ -88,12 +92,12 @@ export default function Hero() {
           <div className="miniStats">
             <div className="stat">
               <strong>Fullstack</strong>
-              <span>Du front au back</span>
+              <span>{t.hero.fullstack}</span>
             </div>
 
             <div className="stat">
-              <strong>Curieux</strong>
-              <span>Apprentissage continu</span>
+              <strong>{t.hero.curious}</strong>
+              <span>{t.hero.learning}</span>
             </div>
           </div>
         </div>

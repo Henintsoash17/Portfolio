@@ -1,21 +1,24 @@
+"use client";
+
 import { skillGroups } from "@/data/portfolio";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Skills() {
+    const { t } = useLanguage();
     return (
         <section id="competences" className="alternate">
             <div className="wrap">
                 <div className="sectionHead">
                     <div>
-                        <div className="kicker">04 / Stack technique</div>
-                        <h2>Les outils que j’utilise.</h2>
+                        <div className="kicker">{t.skills.kicker}</div>
+                        <h2>{t.skills.title}</h2>
                     </div>
                     <p className="sectionDesc">
-                        Un socle fullstack pour construire des applications web
-                        et collaborer dans une équipe de développement.
+                        {t.skills.intro}
                     </p>
                 </div>
                 <div className="skillsGrid">
-                    {skillGroups.map((skill) => (
+                    {skillGroups.map((skill, index) => (
                         <article className="skill" key={skill.title}>
                             <div className="skillHead">
                                 <div className="skillIcon" aria-hidden="true">
@@ -25,11 +28,11 @@ export default function Skills() {
                                     {String(skill.technologies.length).padStart(2, "0")}
                                 </span>
                             </div>
-                            <h3>{skill.title}</h3>
-                            <p>{skill.description}</p>
+                            <h3>{t.skills.items[index].title}</h3>
+                            <p>{t.skills.items[index].description}</p>
                             <div
                                 className="techGrid"
-                                aria-label={`Technologies : ${skill.title}`}
+                                aria-label={`${t.skills.technologies} ${t.skills.items[index].title}`}
                             >
                                 {skill.technologies.map((technology) => (
                                     <span className="techMini" key={technology.name}>

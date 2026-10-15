@@ -1,21 +1,25 @@
+"use client";
+
 import { education } from "@/data/portfolio";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Education() {
+    const { t } = useLanguage();
     return (
         <section id="formation">
             <div className="wrap">
                 <div className="sectionHead">
                     <div>
-                        <div className="kicker">05 / Formation</div>
-                        <h2>Les bases de mon parcours.</h2>
+                        <div className="kicker">{t.education.kicker}</div>
+                        <h2>{t.education.title}</h2>
                     </div>
                 </div>
                 <div className="education">
-                    {education.map((item) => (
+                    {education.map((item, index) => (
                         <article className="edu" key={item.year}>
                             <div className="year">{item.year}</div>
-                            <h3>{item.title}</h3>
-                            <p>{item.school}</p>
+                            <h3>{t.education.items[index].title}</h3>
+                            <p>{t.education.items[index].school}</p>
                         </article>
                     ))}
                 </div>

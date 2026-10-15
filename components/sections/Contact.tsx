@@ -1,23 +1,23 @@
+"use client";
+
 import { profile } from "@/data/portfolio";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Contact() {
+    const { t } = useLanguage();
     return (
         <section id="contact">
             <div className="wrap">
                 <div className="contactBox">
                     <div>
-                        <div className="kicker">06 / Contact</div>
-                        <h2>Construisons quelque chose ensemble.</h2>
-                        <p>
-                            Vous recrutez un développeur fullstack ou souhaitez
-                            échanger autour d’un projet ? Je serai ravi de
-                            discuter avec vous.
-                        </p>
+                        <div className="kicker">{t.contact.kicker}</div>
+                        <h2>{t.contact.title}</h2>
+                        <p>{t.contact.intro}</p>
                         <a
                             className="btn primary"
                             href={`mailto:${profile.email}`}
                         >
-                            Envoyer un e-mail ↗
+                            {t.contact.emailButton} ↗
                         </a>
                     </div>
                     <div className="contactLinks">
@@ -37,7 +37,7 @@ export default function Contact() {
                             href={`tel:${profile.phoneHref}`}
                         >
                             <span>
-                                <small>TÉLÉPHONE</small>
+                                <small>{t.contact.phone}</small>
                                 <br />
                                 {profile.phone}
                             </span>
@@ -48,7 +48,7 @@ export default function Contact() {
                             href={profile.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Voir le profil GitHub de Henintsoa (nouvel onglet)"
+                            aria-label={t.contact.githubLabel}
                         >
                             <span>
                                 <small>GITHUB</small>
@@ -62,7 +62,7 @@ export default function Contact() {
                             href={profile.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Voir le profil LinkedIn de Henintsoa (nouvel onglet)"
+                            aria-label={t.contact.linkedinLabel}
                         >
                             <span>
                                 <small>LINKEDIN</small>
@@ -73,7 +73,7 @@ export default function Contact() {
                         </a>
                         <div className="contactLink">
                             <span>
-                                <small>LOCALISATION</small>
+                                <small>{t.contact.location}</small>
                                 <br />
                                 {profile.location}
                             </span>
